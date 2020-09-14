@@ -5,7 +5,8 @@ RUN apt-get update && \
   apt-get install -y \
   wget
 
-ENV JMETER_VERSION=5.3
+ARG JMETER_VERSION_ARG
+ENV JMETER_VERSION=${JMETER_VERSION_ARG}
 
 # Set work directory
 WORKDIR /opt/apps
@@ -15,5 +16,5 @@ RUN wget -O /opt/apps/apache-jmeter.tgz \
 	"https://downloads.apache.org/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz" \
 	&& tar xvzf apache-jmeter.tgz
 
-RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} /opt/apps/apache-jmeter
-RUN ls -l /opt/apps
+RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
+	/opt/apps/apache-jmeter

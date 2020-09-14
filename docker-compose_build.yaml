@@ -4,4 +4,6 @@ services:
   jmeter:
     build: 
       context: .
+      args:
+        JMETER_VERSION_ARG: ${JMETER_VERSION}
     image: shoepping/jmeter:${JMETER_VERSION}
