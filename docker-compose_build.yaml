@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  jmeter:
+    build: 
+      context: .
+    image: shoepping/jmeter:${JMETER_VERSION}
