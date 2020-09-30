@@ -3,7 +3,8 @@ FROM openjdk:8u265-jdk-slim-buster
 
 RUN apt-get update && \
   apt-get install -y \
-  wget
+  wget \
+  unzip
 
 ARG JMETER_VERSION_ARG
 ENV JMETER_VERSION=${JMETER_VERSION_ARG}
@@ -18,3 +19,6 @@ RUN wget -O /opt/apps/apache-jmeter.tgz \
 
 RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
 	/opt/apps/apache-jmeter
+
+RUN wget https://jmeter-plugins.org/files/packages/jpgc-functions-2.1.zip
+RUN unzip jpgc-functions-2.1.zip -d /opt/apps/apache-jmeter/
