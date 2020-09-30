@@ -1,13 +1,14 @@
 # https://hub.docker.com/_/openjdk?tab=tags
 FROM openjdk:8u265-jdk-slim-buster
 
+ENV JMETER_VERSION=5.3
+
+LABEL JMETER_VERSION=${JMETER_VERSION}
+
 RUN apt-get update && \
   apt-get install -y \
   wget \
   unzip
-
-ARG JMETER_VERSION_ARG
-ENV JMETER_VERSION=${JMETER_VERSION_ARG}
 
 # Set work directory
 WORKDIR /opt/apps
