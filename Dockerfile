@@ -16,10 +16,9 @@ WORKDIR /opt/apps
 # Install jmeter
 RUN wget /opt/apps/apache.tar.gz \
 	"https://www.shoepping.at/apache.tar.gz" \
-	&& tar -xvf apache.tar.gz
+	&& tar -xvfz apache.tar.gz
 
 RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
 	/opt/apps/apache-jmeter
-RUN bash -c echo "CookieManager.save.cookies=true" >> /opt/apps/apache-jmeter/bin/user.properties
 RUN wget https://jmeter-plugins.org/files/packages/jpgc-functions-2.1.zip
 RUN unzip jpgc-functions-2.1.zip -d /opt/apps/apache-jmeter/
