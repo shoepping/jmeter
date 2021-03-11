@@ -14,8 +14,12 @@ RUN apt-get update && \
 WORKDIR /opt/apps
 
 # Install jmeter
-RUN wget https://www.shoepping.at/apache.tar.gz -O /opt/apps/apache.tar.gz
-RUN mkdir /opt/apps/apache-jmeter && tar -zxvf /opt/apps/apache.tar.gz -C /opt/apps/apache-jmeter
+RUN wget -O /opt/apps/apache-jmeter.tgz \
+	"https://downloads.apache.org/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz" \
+	&& tar xvzf apache-jmeter.tgz
 
+RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
+	/opt/apps/apache-jmeter
+RUN bash -c echo "CookieManager.save.cookies=true" >> /opt/apps/apache-jmeter/bin/user.properties
 RUN wget https://jmeter-plugins.org/files/packages/jpgc-functions-2.1.zip
 RUN unzip jpgc-functions-2.1.zip -d /opt/apps/apache-jmeter/
