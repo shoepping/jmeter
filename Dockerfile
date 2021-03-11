@@ -20,6 +20,6 @@ RUN wget -O /opt/apps/apache-jmeter.tgz \
 
 RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
 	/opt/apps/apache-jmeter
-RUN echo "CookieManager.save.cookies=true" | tee -a opt/apps/apache-jmeter/bin/user.properties
+RUN echo "CookieManager.save.cookies=true" | tee -a /opt/apps/apache-jmeter/bin/user.properties
 RUN wget https://jmeter-plugins.org/files/packages/jpgc-functions-2.1.zip
 RUN unzip jpgc-functions-2.1.zip -d /opt/apps/apache-jmeter/
