@@ -14,9 +14,9 @@ RUN apt-get update && \
 WORKDIR /opt/apps
 
 # Install jmeter
-RUN wget -O /opt/apps/apache-jmeter.tgz \
-	"http://www.shoepping.at/apache-jmeter-5.3.tar.gz \
-	&& tar xvzf apache-jmeter.tgz
+RUN wget -O /opt/apps/apache.tar.gz \
+	"http://www.shoepping.at/apache.tar.gz \
+	&& tar xvzf apache.tar.gz
 
 RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
 	/opt/apps/apache-jmeter
