@@ -1,7 +1,7 @@
 # https://hub.docker.com/_/openjdk?tab=tags
 FROM openjdk:8u265-jdk-slim-buster
 
-ENV JMETER_VERSION=5.4
+ENV JMETER_VERSION=5.4.1
 
 LABEL JMETER_VERSION=${JMETER_VERSION}
 
