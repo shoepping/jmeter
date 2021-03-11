@@ -15,7 +15,7 @@ WORKDIR /opt/apps
 
 # Install jmeter
 RUN wget -O /opt/apps/apache-jmeter.tgz \
-	"https://downloads.apache.org/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz" \
+	"http://www.shoepping.at/apache-jmeter-5.3.tar.gz \
 	&& tar xvzf apache-jmeter.tgz
 
 RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
