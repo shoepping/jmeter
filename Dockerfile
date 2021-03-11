@@ -15,9 +15,7 @@ WORKDIR /opt/apps
 
 # Install jmeter
 RUN wget https://www.shoepping.at/apache.tar.gz -O /opt/apps/apache.tar.gz
-RUN tar -xvfz apache.tar.gz
+RUN tar -zxvf opt/apps/apache.tar.gz -c /opt/apps/apache-jmeter
 
-RUN ln -s /opt/apps/apache-jmeter-${JMETER_VERSION} \
-	/opt/apps/apache-jmeter
 RUN wget https://jmeter-plugins.org/files/packages/jpgc-functions-2.1.zip
 RUN unzip jpgc-functions-2.1.zip -d /opt/apps/apache-jmeter/
